@@ -1,6 +1,9 @@
 import { homeVideos } from "../db";
 
-export const home = (req, res) => res.render("Home", { pageTitle: "Home", homeVideos });
+export const home = (req, res) => {
+    res.render("Home", { pageTitle: "Home", homeVideos });
+};
+
 export const search = (req, res) => {
     const {
         query: { term: SearchingBy }
@@ -8,8 +11,9 @@ export const search = (req, res) => {
     
 
     console.log(req.query.term);
-    res.render("Search", { pageTitle: "Search", SearchingBy });
-}
+    res.render("Search", { pageTitle: "Search", SearchingBy, homeVideos });
+};
+
 export const videos = (req,res) => res.render("Videos", { pageTitle: "Videos"});
 export const upload = (req,res) => res.render("Upload", { pageTitle: "Upload"});
 export const videoDetail = (req,res) => res.render("Video Detail", { pageTitle: "Video Detail"});
